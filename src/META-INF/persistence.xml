@@ -6,10 +6,15 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>cn.asn.jpa.samples.Customer</class>
 		<class>cn.asn.jpa.samples.Student</class>
-		<class>cn.asn.jpa.samples.Course</class> 
+		<class>cn.asn.jpa.samples.Course</class>
+		<class>cn.asn.jpa.samples.Order</class>
+		<class>cn.asn.jpa.samples.Country</class>
+		<class>cn.asn.jpa.samples.Phone</class>
+		<class>cn.asn.jpa.samples.Category</class>
+		<class>cn.asn.jpa.samples.Item</class>  
 		
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.56.101:3306/strongjpa"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/strongjpa"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="123"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

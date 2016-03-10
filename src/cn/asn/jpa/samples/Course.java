@@ -14,13 +14,10 @@ import sun.text.resources.BreakIteratorInfo_th;
  *
  */
 
-
-
-@Table(name="JPA_COURSES")
+@Table(name="COURSES")
 @Entity
-public class Course implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Course  {
+	
 	private Integer id;
 	private String courseName;
 	
@@ -29,9 +26,8 @@ public class Course implements Serializable {
 		super();
 	}  
 		
-	@Column(name="COURSE_ID") //Ó³ÉäÁÐÃû
-	@GeneratedValue(strategy=GenerationType.AUTO) 
 	@Id //Ó³ÉäÖ÷¼ü
+	@GeneratedValue(strategy=GenerationType.AUTO) 
 	public Integer getId() {
 		return this.id;
 	}
@@ -48,13 +44,4 @@ public class Course implements Serializable {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	
-	
-	
-	
-	@Transient
-	public String getInfo() {
-		return "id: " + id + ", courseName: " + courseName;
-	}
-   
 }

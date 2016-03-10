@@ -1,10 +1,13 @@
 package cn.asn.jpa.samples;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder.Case;
 
-@Table(name="JPA_CUSTOMERS")
+@Table(name="CUSTOMERS")
 @Entity
 public class Customer {
 	
@@ -15,6 +18,8 @@ public class Customer {
 	
 	private Date createTime;
 	private Date birth;
+	
+	private Set<Order> orders = new HashSet<>();
 
 	
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -62,6 +67,16 @@ public class Customer {
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+	
+	//由'多的一方'（Order方）维护关联关系
+	//@JoinColumn(name="CUSTOMER_ID")
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.REMOVE}, mappedBy="customer") 
+	public Set<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
 	}
 	
 	@Override

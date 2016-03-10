@@ -1,6 +1,8 @@
 package cn.asn.jpa.samples;
 
-import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 
@@ -8,30 +10,40 @@ import javax.persistence.*;
  * The persistent class for the student database table.
  * 
  */
+
+@Table(name="STUDENTS")
 @Entity
-@NamedQuery(name="Student.findAll", query="SELECT s FROM Student s")
-public class Student implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Student {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int stuId;
-
+	private int id;
+	private String stuName;	
 	private String email;
+	
+	private Set<Phone> phones = new HashSet<>();
 
-	private String stuName;
-
+	
 	public Student() {
 	}
 
-	public int getStuId() {
-		return this.stuId;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public int getId() {
+		return id;
 	}
 
-	public void setStuId(int stuId) {
-		this.stuId = stuId;
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	@Column(name="STU_NAME")
+	public String getStuName() {
+		return this.stuName;
+	}
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
 	}
 
+	@Column(name="EMAIL")
 	public String getEmail() {
 		return this.email;
 	}
@@ -40,12 +52,16 @@ public class Student implements Serializable {
 		this.email = email;
 	}
 
-	public String getStuName() {
-		return this.stuName;
+	
+	
+	@JoinColumn(name="STU_ID")
+	@OneToMany(cascade={CascadeType.REMOVE})
+	public Set<Phone> getPhones() {
+		return phones;
 	}
 
-	public void setStuName(String stuName) {
-		this.stuName = stuName;
+	public void setPhones(Set<Phone> phones) {
+		this.phones = phones;
 	}
-
+	
 }
