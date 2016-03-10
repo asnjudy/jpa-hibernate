@@ -7,6 +7,10 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder.Case;
 
+import org.hibernate.type.TrueFalseType;
+
+
+//@Cacheable(true)
 @Table(name="CUSTOMERS")
 @Entity
 public class Customer {
@@ -71,7 +75,7 @@ public class Customer {
 	
 	//由'多的一方'（Order方）维护关联关系
 	//@JoinColumn(name="CUSTOMER_ID")
-	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.REMOVE}, mappedBy="customer") 
+	@OneToMany(fetch=FetchType.LAZY, cascade={CascadeType.REMOVE}, mappedBy="customer") 
 	public Set<Order> getOrders() {
 		return orders;
 	}
