@@ -9,10 +9,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.asn.jpa.samples.Country;
-import cn.asn.jpa.samples.Course;
-import cn.asn.jpa.samples.Phone;
-import cn.asn.jpa.samples.Student;
+import model.Country;
+import model.Phone;
+import model.Student;
 
 public class OneToManyTest {
 	
@@ -68,7 +67,7 @@ public class OneToManyTest {
 		student.getPhones().add(phone2);
 		
 		Country country = new Country();
-		country.setName("China");
+		country.setCountryName("China");
 		country.getStudents().add(student);
 		
 		//先持久化主表记录，再持久化外表记录

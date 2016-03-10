@@ -41,6 +41,12 @@ public class Item {
 		this.itemName = itemName;
 	}
 
+	
+	/*
+	 *  name, 指定中间表的表名
+	 *  joinColumns, 表示中间表的ITEM_ID列外键约束到当前类所对应表的ID主键列
+	 *  inverseJoinColumns, 逆向外键关联列
+	 */
 	@JoinTable(
 			name="ITEM_CATEGORY",
 			joinColumns={@JoinColumn(name="ITEM_ID", referencedColumnName="ID")},

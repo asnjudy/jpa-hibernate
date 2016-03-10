@@ -5,13 +5,15 @@
 		<!-- 配置使用什么ORM产品来作为JPA实现 -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>cn.asn.jpa.samples.Customer</class>
-		<class>cn.asn.jpa.samples.Student</class>
-		<class>cn.asn.jpa.samples.Course</class>
 		<class>cn.asn.jpa.samples.Order</class>
-		<class>cn.asn.jpa.samples.Country</class>
-		<class>cn.asn.jpa.samples.Phone</class>
 		<class>cn.asn.jpa.samples.Category</class>
-		<class>cn.asn.jpa.samples.Item</class>  
+		<class>cn.asn.jpa.samples.Item</class>
+		<class>model.Country</class>
+		<class>model.Course</class>
+		<class>model.Phone</class>
+		<class>model.Score</class>
+		<class>model.ScorePK</class>
+		<class>model.Student</class>  
 		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/strongjpa"/>
